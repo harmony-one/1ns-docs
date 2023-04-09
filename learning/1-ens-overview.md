@@ -8,7 +8,17 @@ TODO
 
 - Document DNS IP management process
 - Document frontend integration (web site creation)
-- Document SSL certificate provisioning (see [gcp-certs.js](https://github.com/harmony-one/ens-registrar-relay/blob/main/src/gcp-certs.js)ß)
+- Document SSL certificate provisioning (see [gcp-certs.js](https://github.com/harmony-one/ens-registrar-relay/blob/main/src/gcp-certs.js))
+
+## Releases
+
+| Release | Audience | Description |
+| --- | --- | --- |
+| v0 | Internal | ens evaluation for Harmony |
+| v1.0 | External | .1.country Close-ended product for .1.country domain only |
+| v2.0 | External | dot county web2 and web3 domain registration with web2 frontend |
+| v3.0 | External | dot-country with web3 backend for DNS management |
+| v4.0 | External | dot-country with email alias services supporting SMTP management |
 
 ## Design documents
 
