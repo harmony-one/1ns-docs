@@ -12,13 +12,14 @@ TODO
 
 ## Releases
 
-| Release | Audience | Description |
-| --- | --- | --- |
-| v0 | Internal | ens evaluation for Harmony |
-| v1.0 | External | .1.country Close-ended product for .1.country domain only |
-| v2.0 | External | dot county web2 and web3 domain registration with web2 frontend |
-| v3.0 | External | dot-country with web3 backend for DNS management |
-| v4.0 | External | dot-country with email alias services supporting SMTP management |
+| Release | Audience | Description | Design Docs |
+| --- | --- | --- | --- |
+| wallet | External | non-custodial wallet infrastructure (built seperately prior to ens and can be leveraged by ENS moving forward) | [one-wallet](https://github.com/polymorpher/one-wallet/blob/master/README.md) modulo.so One Time Password (OTP) Wallet </br> [SMS Controlled Mini-wallet](https://github.com/polymorpher/sms-wallet/wiki#sms-controlled-mini-wallet) |
+| v0 | Internal | ens evaluation for Harmony |  [1NS Deployment](./1NS-DEPLOYMENT.md): Copy of [ENS Documentation: Deploying ENS on a private chain](https://docs.ens.domains/deploying-ens-on-a-private-chain) ([github](https://github.com/ensdomains/docs/blob/master/deploying-ens-on-a-private-chain.md)), starting point for deploying dot-country ens contracts on Harmony. </br> [Harmony Name Service Design Document](.//1NS-DESIGN.md): This document covers the high level development tasks to create similar functionality as ens.domains for Harmony. |
+| v1.0 | External | .1.country Close-ended product for .1.country domain only | [.1.country](https://github.com/polymorpher/.1.country#readme) |
+| v2.0 | External | dot county web2 and web3 domain registration with web2 frontend | [dot-country](https://github.com/harmony-one/dot-country/blob/main/README.md) |
+| v3.0 | External | dot-country with web3 backend for DNS management | [Domain Name Service Architecture](../design/DNS-ARCHITECTURE.md):review of existing DNS services and proposed architecture for Harmony  </br> [core-dns web3 plugin design](../design/CORE-DNS.md): development framework and build process to develop a web3 backend [plugin](https://coredns.io/explugins/) for [core-dns](https://coredns.io/).|
+| v4.0 | External | dot-country with email alias services supporting SMTP management | [Decentralized Encrypted Email Service (DEES)](./DEES.md): draft product suite design </br> [Email Alias Service Design](./EAS-DESIGN.md): requirements and design for an Email Alias Service. </br> [Email Alias Service Implementation](./EAS-IMPLEMENTATION.md): implementation strategy for implementing smtp services with a web3 backend. </br> [Email Alias Service Developer.md](./EAS-DEVELOPER.md): EAS contributors guide |
 
 ## Design documents
 
@@ -69,14 +70,68 @@ The goal is to migrate all these repositories under the harmony-one organization
 
 ![DEES Reference Architecture](/assets/dees-architecture.jpeg "DEES Reference Architecture")
 
-### Codebase
+## Codebase by Release
+
+### Wallet - non custodial wallet infrastructure
 
 | Component | Sub-Component | Repository | Description |
 | --- | --- | --- | --- |
-| Design | 1 Name Service | [1ns-implementation](https://github.com/harmony-one/1ns-implementation) | high level development tasks to create similar functionality as ens.domains for 1 Name Service |
-| Design | Harmony Name Service | [1ns](https://github.com/harmony-one/1ns) | This document covers the high level development tasks to create similar functionality as ens.domains for Harmony. | obsolete - can be deleted |
-| Documentation | Knowledge Transfer | [1ns-docs](https://github.com/polymorpher/1ns-docs) | This repository holds information relevant to the design and implementation of Harmony 1ns implementation of ENS. |
-| Documentation | Knowledge Transfer | [knowledge-transfer](https://github.com/jw-1ns/knowledge-transfer) | This repository holds information relevant to the design and implementation of Harmony 1ns implementation of ENS. |
+| Wallet | one-wallet | [one-wallet](https://github.com/polymorpher/one-wallet) |1wallet is an unconventional keyless, non-custodial smart contract wallet. |
+| Wallet | sms-wallet | [sms-wallet](https://github.com/polymorpher/sms-wallet) | The SMS Wallet is a lightweight non-custodial wallet solution for users to quickly create a wallet bound to their phone number, receive (or purchase) inexpensive NFTs, showcase their NFTs, and to hold a small amount of crypto assets. |
+
+### v0 - ens evaluation for Harmony
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Web3 | ens | [ens-deployer](https://github.com/harmony-one/ens-deployer) | 1NS related contract deployment, customized based on ENS contracts. |
+| Web3 | Metadata | [ens-metadata-service](https://github.com/harmony-one/ens-metadata-service) | Retrieves Metadata information from IPFS for a given TokenId |
+| Web3 | Reporting | [graph-node](https://github.com/jw-1ns/graph-node) |  protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.|
+| Web2 | Avatar Storage | [ens-avatar-worker](https://github.com/harmony-one/ens-avatar-worker) | [Cloudflare Worker](https://developers.cloudflare.com/workers/) used to store avatars |
+| Frontend | Domain Registration | [ens-app-v3](https://github.com/harmony-one/ens-app-v3) | The all new, all cool version of the ENS manager.|
+| Reporting | ens | [ens-subgraph](https://github.com/harmony-one/ens-subgraph) | This Subgraph sources events from the ENS contracts. This includes the ENS registry, the Auction Registrar, and any resolvers that are created and linked to domains.|
+
+### v1.0 - .1.country Close-ended product for .1.country domain only  
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Mono-repo | .1.country | [.1.country](https://github.com/harmony-one/.1.country) | Close-ended product for .1.country |
+
+### v2.0 - dot county web2 and web3 domain registration with web2 frontend
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Web3 | ens | [ens-deployer](https://github.com/harmony-one/ens-deployer) | 1NS related contract deployment, customized based on ENS contracts. |
+| Web3 | 1-country | [1-country.contract](https://github.com/harmony-one/1-country.contract) | A domain manager contract for .country (DC -  Dot Country) |
+| Web3 | relay | [ens-registrar-relay](https://github.com/harmony-one/ens-registrar-relay) | ENS Registrar Relay is a backend server that communicates with web2 registrars on behalf of web3 clients (e.g. browsers). Is also responsible for [SSL certificate provisioning](https://github.com/harmony-one/ens-registrar-relay/blob/main/src/gcp-certs.js). |
+| Web2 | DNS Storage|[coredns-redis](https://github.com/harmony-one/coredns-redis) | DNS Server plugin using [redis](https://redis.io/) open source, in-memory data store |
+| Web2 | NFT Image Storage | [nft-images-generator](https://github.com/harmony-one/nft-images-generator) | an API that generates an NFT image by overlaying text on a background image and uploads it to a designated Google Storage bucket location |
+| Frontend | Block Explorer | [explorer-v2-frontend](https://github.com/harmony-one/explorer-v2-frontend) | Harmony Block Explorer frontend |
+| Frontend | 1.country | [1-country.frontend](https://github.com/harmony-one/1-country.frontend) | 1.country allows users to claim a Web3 name .1 that also directs to a browsable Web2 domain .country. |
+| Mono-repo | dot-country | [dot-country](https://github.com/harmony-one/dot-country) | dot-country mono repository containing frontend client and dot-country contracts which interact with ens contracts |
+
+### v3.0 - dot-country with web3 backend for DNS management
+
+Includes all components in v2.0 except for coredns-redis which is to be replaced by coredns-1ns migrating dns storage to web3.
+
+Plus these additional components
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Utility | Golang SDK for ens web3 | [go-1ns](https://github.com/harmony-one/go-1ns) | Go module to simplify interacting with the Harmony Name Service contracts. Initial version copied from go-ens. |
+| Web3 | DNS server Plugin using web3 backend | [coredns-1ns](https://github.com/harmony-one/coredns-1ns) | DNS server plugin using web3 backend of ens-contracts. Interacts with web3 backend via [go-1ns](https://github.com/harmony-one/go-1ns) |
+| Utility | DNS-JS | [node-dns-js](https://github.com/polymorpher/node-dns-js) | NPM module allowing DNS packet parsing |
+| Utility | DNS-JS | [1ns-node-dns-js](https://github.com/jw-1ns/1ns-node-dns-js) | NPM module allowing DNS packet parsing |
+
+### v4.0 - dot-country with email alias services supporting SMTP management
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Mono-repo | Email Alias Service | [eas](https://github.com/harmony-one/eas) | The Email Alias Service (EAS) provides .country domain owners email alias addresses which they can privately forward to their existing email addresses. |
+
+### For Review
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
 | Web3 | ens | [ens-deployer](https://github.com/harmony-one/ens-deployer) | 1NS related contract deployment, customized based on ENS contracts. |
 | Web3 | Subdomain registrar | [subdomain-registrar-core](https://github.com/polymorpher/subdomain-registrar-core) | contains only the contract code from @ensdomains/subdomain-registrar, so other projects can easily import the contract by adding this project as a dependency |
 | Web3 | 1-country | [1-country.contract](https://github.com/harmony-one/1-country.contract) | A domain manager contract for .country (DC -  Dot Country) |
@@ -85,8 +140,6 @@ The goal is to migrate all these repositories under the harmony-one organization
 | Web3 | Reporting | [graph-node](https://github.com/jw-1ns/graph-node) |  protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.|
 | Web3 | Explorer Backend | [explorer-v2-backend](https://github.com/harmony-one/explorer-v2-backend) | Harmony Blockchain Data Indexer |
 | Web3 | DNS server Plugin using web3 backend | [coredns-1ns](https://github.com/harmony-one/coredns-1ns) | DNS server plugin using web3 backend of ens-contracts. Interacts with web3 backend via [go-1ns](https://github.com/harmony-one/go-1ns) |
-| Wallet | one-wallet | [one-wallet](https://github.com/polymorpher/one-wallet) |1wallet is an unconventional keyless, non-custodial smart contract wallet. |
-| Wallet | sms-wallet | [sms-wallet](https://github.com/polymorpher/sms-wallet) | The SMS Wallet is a lightweight non-custodial wallet solution for users to quickly create a wallet bound to their phone number, receive (or purchase) inexpensive NFTs, showcase their NFTs, and to hold a small amount of crypto assets. |
 | Web2 | Avatar Storage | [ens-avatar-worker](https://github.com/harmony-one/ens-avatar-worker) | [Cloudflare Worker](https://developers.cloudflare.com/workers/) used to store avatars |
 | Web2 | Video Storage | [mux-uploader.backend](https://github.com/harmony-one/mux-uploader.backend) | Decentralized storage layer for videos using aws, [storj](https://www.storj.io/), web3 authorizations (to JWT) and a dagtabase. |
 | Web2 | DNS Storage|[coredns-redis](https://github.com/harmony-one/coredns-redis) | DNS Server plugin using [redis](https://redis.io/) open source, in-memory data store |
