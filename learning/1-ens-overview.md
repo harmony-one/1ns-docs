@@ -103,6 +103,7 @@ The goal is to migrate all these repositories under the harmony-one organization
 | Web3 | ens | [ens-deployer](https://github.com/harmony-one/ens-deployer) | 1NS related contract deployment, customized based on ENS contracts. |
 | Web3 | 1-country | [1-country.contract](https://github.com/harmony-one/1-country.contract) | A domain manager contract for .country (DC -  Dot Country) |
 | Web3 | relay | [ens-registrar-relay](https://github.com/harmony-one/ens-registrar-relay) | ENS Registrar Relay is a backend server that communicates with web2 registrars on behalf of web3 clients (e.g. browsers). Is also responsible for [SSL certificate provisioning](https://github.com/harmony-one/ens-registrar-relay/blob/main/src/gcp-certs.js). |
+| Web3 | Explorer Backend | [explorer-v2-backend](https://github.com/harmony-one/explorer-v2-backend) | Harmony Blockchain Data Indexer |
 | Web2 | DNS Storage|[coredns-redis](https://github.com/harmony-one/coredns-redis) | DNS Server plugin using [redis](https://redis.io/) open source, in-memory data store |
 | Web2 | NFT Image Storage | [nft-images-generator](https://github.com/harmony-one/nft-images-generator) | an API that generates an NFT image by overlaying text on a background image and uploads it to a designated Google Storage bucket location |
 | Frontend | Block Explorer | [explorer-v2-frontend](https://github.com/harmony-one/explorer-v2-frontend) | Harmony Block Explorer frontend |
@@ -118,9 +119,9 @@ Plus these additional components
 | Component | Sub-Component | Repository | Description |
 | --- | --- | --- | --- |
 | Utility | Golang SDK for ens web3 | [go-1ns](https://github.com/harmony-one/go-1ns) | Go module to simplify interacting with the Harmony Name Service contracts. Initial version copied from go-ens. |
-| Web3 | DNS server Plugin using web3 backend | [coredns-1ns](https://github.com/harmony-one/coredns-1ns) | DNS server plugin using web3 backend of ens-contracts. Interacts with web3 backend via [go-1ns](https://github.com/harmony-one/go-1ns) |
 | Utility | DNS-JS | [node-dns-js](https://github.com/polymorpher/node-dns-js) | NPM module allowing DNS packet parsing |
 | Utility | DNS-JS | [1ns-node-dns-js](https://github.com/jw-1ns/1ns-node-dns-js) | NPM module allowing DNS packet parsing |
+| Web3 | DNS server Plugin using web3 backend | [coredns-1ns](https://github.com/harmony-one/coredns-1ns) | DNS server plugin using web3 backend of ens-contracts. Interacts with web3 backend via [go-1ns](https://github.com/harmony-one/go-1ns) |
 
 ### v4.0 - dot-country with email alias services supporting SMTP management
 
@@ -128,37 +129,17 @@ Plus these additional components
 | --- | --- | --- | --- |
 | Mono-repo | Email Alias Service | [eas](https://github.com/harmony-one/eas) | The Email Alias Service (EAS) provides .country domain owners email alias addresses which they can privately forward to their existing email addresses. |
 
-### For Review
+### For Review and/or archiving
 
 | Component | Sub-Component | Repository | Description |
 | --- | --- | --- | --- |
-| Web3 | ens | [ens-deployer](https://github.com/harmony-one/ens-deployer) | 1NS related contract deployment, customized based on ENS contracts. |
 | Web3 | Subdomain registrar | [subdomain-registrar-core](https://github.com/polymorpher/subdomain-registrar-core) | contains only the contract code from @ensdomains/subdomain-registrar, so other projects can easily import the contract by adding this project as a dependency |
-| Web3 | 1-country | [1-country.contract](https://github.com/harmony-one/1-country.contract) | A domain manager contract for .country (DC -  Dot Country) |
-| Web3 | relay | [ens-registrar-relay](https://github.com/harmony-one/ens-registrar-relay) | ENS Registrar Relay is a backend server that communicates with web2 registrars on behalf of web3 clients (e.g. browsers). |
-| Web3 | Metadata | [ens-metadata-service](https://github.com/harmony-one/ens-metadata-service) | Retrieves Metadata information from IPFS for a given TokenId |
-| Web3 | Reporting | [graph-node](https://github.com/jw-1ns/graph-node) |  protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.|
-| Web3 | Explorer Backend | [explorer-v2-backend](https://github.com/harmony-one/explorer-v2-backend) | Harmony Blockchain Data Indexer |
-| Web3 | DNS server Plugin using web3 backend | [coredns-1ns](https://github.com/harmony-one/coredns-1ns) | DNS server plugin using web3 backend of ens-contracts. Interacts with web3 backend via [go-1ns](https://github.com/harmony-one/go-1ns) |
-| Web2 | Avatar Storage | [ens-avatar-worker](https://github.com/harmony-one/ens-avatar-worker) | [Cloudflare Worker](https://developers.cloudflare.com/workers/) used to store avatars |
 | Web2 | Video Storage | [mux-uploader.backend](https://github.com/harmony-one/mux-uploader.backend) | Decentralized storage layer for videos using aws, [storj](https://www.storj.io/), web3 authorizations (to JWT) and a dagtabase. |
-| Web2 | DNS Storage|[coredns-redis](https://github.com/harmony-one/coredns-redis) | DNS Server plugin using [redis](https://redis.io/) open source, in-memory data store |
-| Web2 | NFT Image Storage | [nft-images-generator](https://github.com/harmony-one/nft-images-generator) | an API that generates an NFT image by overlaying text on a background image and uploads it to a designated Google Storage bucket location |
 | Utility | one country sdk | [one-country-sdk](https://github.com/harmony-one/one-country-sdk) | Web3 library for 1.country smart contracts which can be installed as an npm package for front end clients. |
-| Utility | Golang SDK for ens web3 | [go-1ns](https://github.com/harmony-one/go-1ns) | Go module to simplify interacting with the Harmony Name Service contracts. Initial version copied from go-ens. |
-| Utility | DNS-JS | [node-dns-js](https://github.com/polymorpher/node-dns-js) | NPM module allowing DNS packet parsing |
-| Utility | DNS-JS | [1ns-node-dns-js](https://github.com/jw-1ns/1ns-node-dns-js) | NPM module allowing DNS packet parsing |
-| Frontend | Domain Registration | [ens-app-v3](https://github.com/harmony-one/ens-app-v3) | The all new, all cool version of the ENS manager.|
 | Frontend | ens | [ens-app](https://github.com/harmony-one/ens-app) | ENS Frontend Application |
 | Frontend | Adresses | [react-ens-address](https://github.com/harmony-one/react-ens-address) | Drop-in React component to resolve ENS names or provide feedback with reverse records.|
-| Frontend | Block Explorer | [explorer-v2-frontend](https://github.com/harmony-one/explorer-v2-frontend) | Harmony Block Explorer frontend |
-| Frontend | 1.country | [1-country.frontend](https://github.com/harmony-one/1-country.frontend) | 1.country allows users to claim a Web3 name .1 that also directs to a browsable Web2 domain .country. |
 | Frontend | dot-country domain component |  [dot-country-manager](https://github.com/harmony-one/dot-country-manager) | Front End component showing dot-country domain metadata |
 | Frontend | One redirect browser extension | [one-redirect](https://github.com/harmony-one/one-redirect) | Support redirect xx.1 to xx.1.country even tho the browser does not recognized .1 domain. |
-| Reporting | ens | [ens-subgraph](https://github.com/harmony-one/ens-subgraph) | This Subgraph sources events from the ENS contracts. This includes the ENS registry, the Auction Registrar, and any resolvers that are created and linked to domains.|
-| Mono-repo | dot-country | [dot-country](https://github.com/harmony-one/dot-country) | dot-country mono repository containing frontend client and dot-country contracts which interact with ens contracts |
-| Mono-repo | Email Alias Service | [eas](https://github.com/harmony-one/eas) | The Email Alias Service (EAS) provides .country domain owners email alias addresses which they can privately forward to their existing email addresses. |
-| Mono-repo | .1.country | [.1.country](https://github.com/harmony-one/.1.country) | Close-ended product for .1.country |
 
 ### Demonstration Videos
 
