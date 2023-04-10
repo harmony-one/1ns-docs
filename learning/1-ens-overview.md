@@ -134,7 +134,7 @@ Plus these additional components
 | Component | Sub-Component | Repository | Description |
 | --- | --- | --- | --- |
 | Web3 | Subdomain registrar | [subdomain-registrar-core](https://github.com/polymorpher/subdomain-registrar-core) | contains only the contract code from @ensdomains/subdomain-registrar, so other projects can easily import the contract by adding this project as a dependency |
-| Web2 | Video Storage | [mux-uploader.backend](https://github.com/harmony-one/mux-uploader.backend) | Decentralized storage layer for videos using aws, [storj](https://www.storj.io/), web3 authorizations (to JWT) and a dagtabase. |
+| Web2 | Video Storage | [mux-uploader.backend](https://github.com/harmony-one/mux-uploader.backend) | Decentralized storage layer for videos using aws, [storj](https://www.storj.io/), web3 authorizations (to JWT) and a database. |
 | Utility | one country sdk | [one-country-sdk](https://github.com/harmony-one/one-country-sdk) | Web3 library for 1.country smart contracts which can be installed as an npm package for front end clients. |
 | Frontend | ens | [ens-app](https://github.com/harmony-one/ens-app) | ENS Frontend Application |
 | Frontend | Adresses | [react-ens-address](https://github.com/harmony-one/react-ens-address) | Drop-in React component to resolve ENS names or provide feedback with reverse records.|

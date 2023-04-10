@@ -29,7 +29,7 @@
 
 ### Development Tools (everyone)
 
-- [github](https://github.com/) : download [github cli](https://iterm2.com/): and authenticate using [gh auth login](https://cli.github.com/manual/gh_auth_login)
+- [github](https://github.com/) : download [github cli](https://github.com/cli/cli#installation): and authenticate using [gh auth login](https://cli.github.com/manual/gh_auth_login)
 - [vim] : install [The Ultimate Vim configuration](https://github.com/amix/vimrc)
 - [terminal] : download [iterm2](https://iterm2.com/)
 - ide : [Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
