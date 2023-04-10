@@ -1,19 +1,19 @@
 # ENS Operations
 
 - [Deployments](https://console.cloud.google.com/compute/instances?project=radical-domain&supportedpurview=project) ENS
-  - [frontend-dev](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/frontend-dev?project=radical-domain&supportedpurview=project) <https://github.com/jw-ens-domains/ens-app-v3>
+  - [frontend-dev](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/frontend-dev?project=radical-domain&supportedpurview=project) <https://github.com/jw-1ns/ens-app-v3>
     - `gcloud compute ssh --zone "us-west1-c" "frontend-dev" --project "radical-domain"`
-  - [graph](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/graph?project=radical-domain&supportedpurview=project) <https://github.com/jw-ens-domains/ens-subgraph>
+  - [graph](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/graph?project=radical-domain&supportedpurview=project) <https://github.com/jw-1ns/ens-subgraph>
     - `gcloud compute ssh --zone "us-west1-c" "graph" --project "radical-domain"`
-  - [graph-s1](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/graph-s1?project=radical-domain&supportedpurview=project) <https://github.com/jw-ens-domains/ens-subgraph>
+  - [graph-s1](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/graph-s1?project=radical-domain&supportedpurview=project) <https://github.com/jw-1ns/ens-subgraph>
     - `gcloud compute ssh --zone "us-west1-c" "graph-s1" --project "radical-domain"`
   - [ipfs](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/ipfs?project=radical-domain&supportedpurview=project) <https://github.com/ipfs/kubo>
     - `gcloud compute ssh --zone "us-west1-c" "ipfs" --project "radical-domain"`
-  - [metadata](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/metadata?project=radical-domain&supportedpurview=project) <https://github.com/jw-ens-domains/ens-metadata-service>
+  - [metadata](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/metadata?project=radical-domain&supportedpurview=project) <https://github.com/jw-1ns/ens-metadata-service>
     - `gcloud compute ssh --zone "us-west1-c" "metadata" --project "radical-domain"`
   - [coredns](https://console.cloud.google.com/compute/instancesDetail/zones/us-west1-c/instances/coredns?project=radical-domain&supportedpurview=project) <https://github.com/coredns/coredns>
     - `gcloud compute ssh --zone "us-west1-c" "coredns" --project "radical-domain"`
-  - avatar-worker <https://github.com/jw-ens-domains/ens-avatar-worker> (aaron deployed on cloudflare)
+  - avatar-worker <https://github.com/jw-1ns/ens-avatar-worker> (aaron deployed on cloudflare)
     - [sample cloudflare storage](https://dash.cloudflare.com/17267e599b20965cef71bfb51307928c/r2/overview)
   - All Deployments and ips
 
@@ -550,7 +550,7 @@
         
         ```
 
-  - Running a Local ENS Environment (or [docker commands in ens-app-v3)](https://github.com/jw-ens-domains/ens-app-v3/blob/dev/docs/Developer.md)
+  - Running a Local ENS Environment (or [docker commands in ens-app-v3)](https://github.com/jw-1ns/ens-app-v3/blob/dev/docs/Developer.md)
 
         ```bash
         # Start Ganache Locally (terminal window 1)
@@ -607,4 +607,4 @@
         pnpm dev
         ```
 
-- Deploying Relayer <https://github.com/jw-ens-domains/ens-registrar-relay>
+- Deploying Relayer <https://github.com/jw-1ns/ens-registrar-relay>
