@@ -64,7 +64,7 @@ Following is an overview of the current development process.
 
 ### Architecture
 
-![DEES Reference Architecture](/assets/dees-architecture.jpeg "DEES Reference Architecture")
+![Dot Country Reference Architecture](/assets/dc-architecture.jpeg "Dot Country Reference Architecture")
 
 ## Codebase by Release
 
