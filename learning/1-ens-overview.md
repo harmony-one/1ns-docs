@@ -15,30 +15,14 @@ TODO
 | Release | Audience | Description | Design Docs |
 | --- | --- | --- | --- |
 | wallet | External | non-custodial wallet infrastructure (built seperately prior to ens and can be leveraged by ENS moving forward) | [one-wallet](https://github.com/polymorpher/one-wallet/blob/master/README.md) modulo.so One Time Password (OTP) Wallet </br> [SMS Controlled Mini-wallet](https://github.com/polymorpher/sms-wallet/wiki#sms-controlled-mini-wallet) |
-| v0 | Internal | ens evaluation for Harmony |  [1NS Deployment](./1NS-DEPLOYMENT.md): Copy of [ENS Documentation: Deploying ENS on a private chain](https://docs.ens.domains/deploying-ens-on-a-private-chain) ([github](https://github.com/ensdomains/docs/blob/master/deploying-ens-on-a-private-chain.md)), starting point for deploying dot-country ens contracts on Harmony. </br> [Harmony Name Service Design Document](.//1NS-DESIGN.md): This document covers the high level development tasks to create similar functionality as ens.domains for Harmony. |
+| v0 | Internal | ens evaluation for Harmony |  [1NS Deployment](./1NS-DEPLOYMENT.md): Copy of [ENS Documentation: Deploying ENS on a private chain](https://docs.ens.domains/deploying-ens-on-a-private-chain) ([github](https://github.com/ensdomains/docs/blob/master/deploying-ens-on-a-private-chain.md)), starting point for deploying dot-country ens contracts on Harmony. </br> [Harmony Name Service Design Document](../design/1NS-DESIGN.md): This document covers the high level development tasks to create similar functionality as ens.domains for Harmony. |
 | v1.0 | External | .1.country Close-ended product for .1.country domain only | [.1.country](https://github.com/polymorpher/.1.country#readme) |
 | v2.0 | External | dot county web2 and web3 domain registration with web2 frontend | [dot-country](https://github.com/harmony-one/dot-country/blob/main/README.md) |
 | v3.0 | External | dot-country with web3 backend for DNS management | [Domain Name Service Architecture](../design/DNS-ARCHITECTURE.md):review of existing DNS services and proposed architecture for Harmony  </br> [core-dns web3 plugin design](../design/CORE-DNS.md): development framework and build process to develop a web3 backend [plugin](https://coredns.io/explugins/) for [core-dns](https://coredns.io/).|
 | v4.0 | External | dot-country with email alias services supporting SMTP management | [Decentralized Encrypted Email Service (DEES)](./DEES.md): draft product suite design </br> [Email Alias Service Design](./EAS-DESIGN.md): requirements and design for an Email Alias Service. </br> [Email Alias Service Implementation](./EAS-IMPLEMENTATION.md): implementation strategy for implementing smtp services with a web3 backend. </br> [Email Alias Service Developer.md](./EAS-DEVELOPER.md): EAS contributors guide |
+| v5.0 | External | dot-country web site forwarding (Design stage) |  Allow an existing website to be rendered under a dot-country domain. e.g johnwhitton.com could be rendered under john.country. *Note all outward facing url's would be john.country (i.e. this is not a simple forwarding record).* |
 
-## Design documents
-
-Following are the design documents for dot-country
-
-*Note: These are currently under review with the goal of a consolidated design document.*
-
-Following are the design documents for dot-country
-
-*Note: These are currently under review with the goal of a consolidated design document.*
-
-- [1NS Deployment](../design/1NS-DEPLOYMENT.md): Copy of [ENS Documentation: Deploying NS on a private chain](https://docs.ens.domains/deploying-ens-on-a-private-chain) ([github](https://github.com/ensdomains/docs/blob/master/deploying-ens-on-a-private-chain.md)), used a starting point for deploying dot-country ens contracts on Harmony.
-- [Harmony Name Service Design Document](../design/1NS-DESIGN.md): This document covers the high level development tasks to create similar functionality as ens.domains for Harmony.
-- [Domain Name Service Architecture](../design/DNS-ARCHITECTURE.md): This document gives a review of existing DNS services and proposes an architecture for Harmony Domain Name Service.
-- [core-dns web3 plugin design](../design/CORE-DNS.md): This document gives an overview of the development framework and build process to develop a web3 backend [plugin](https://coredns.io/explugins/) for [core-dns](https://coredns.io/).
-- [Decentralized Encrypted Email Service (DEES)](../design/DEES.md): This document provides a design and development framework for developing a decentralized encrypted email service integrated with web3 domain name services.
-- [Email Alias Service Design](../design/EAS-DESIGN.md): This document provides high level requirements and design for an Email Alias Service.
-- [Email Alias Service Implementation](../design/EAS-IMPLEMENTATION.md): This document provides an analysis of open source SMTP services and an implementation strategy for implementing similar services with a web3 backend.
-- [Email Alias Service Developer.md](../design/EAS-DEVELOPER.md): This guide gives an overview for contributors on how to fork and develop on EAS. For an understanding of the design of EAS please review [DESIGN.md](../design/EAS-DESIGN.md).
+*Note: Design documents are currently under review with the goal of a consolidated design document.*
 
 ## Technical Overview
 
@@ -51,16 +35,28 @@ Repositories have been developed under 3 organizations
   - forks of [ensdomains](https://github.com/ensdomains) repositories used in inital evaluation and development.
   - forks of [polymorpher](https://github.com/polymorpher/) customized dot-country development
 - [polymorpher](https://github.com/polymorpher/): contains
-  - original repositories for dot-country devlopment
+  - original repositories for dot-country development
   - forks of [jw-1ns](https://github.com/jw-1ns) dns server functionality
 - [harmony-one](https://github.com/harmony-one): contains
   - original repositories for dot-country frontend and utilities as well as code modifications to harmony explorer for dot-country
   - forks of [polymorpher](https://github.com/polymorpher/) dot-country repositories
   - forks of [jw-1ns](https://github.com/jw-1ns) coredns repositories
 
-The goal is to migrate all these repositories under the harmony-one organization and moving forward any development would be initiated by forking this repository and creating pull request to the harmony-one repository for new work.
-
 *Note: this development relies on a number of repositories from [Ethereum Name Service (ENS)](https://github.com/ensdomains) for web3 backend functionality and other utilities*
+
+### Development Process
+
+Following is an overview of the current development process.
+
+1. Identify the source organization of the repository (polymorpher, jw-1ns, harmony)
+2. Create a fork from that repository under your own github account.
+3. Create a branch for the work being done.
+4. Complete development and testing under that branch
+5. Create a pull request from your fork to the source repositories main branch.
+6. Pull request is reviewed, feedback is provided.
+7. Feedback is implemented in your local fork.
+8. Pull request is accepted and merged to the source repositories main branch.
+9. Harmony fork's main branch is updated from the source main branch (if source repository is under polymorpher or jw-1ns organization)
 
 ### Registration Flow
 
@@ -128,6 +124,12 @@ Plus these additional components
 | Component | Sub-Component | Repository | Description |
 | --- | --- | --- | --- |
 | Mono-repo | Email Alias Service | [eas](https://github.com/harmony-one/eas) | The Email Alias Service (EAS) provides .country domain owners email alias addresses which they can privately forward to their existing email addresses. |
+
+### v5.0 - dot-country web site forwarding (Design stage)
+
+| Component | Sub-Component | Repository | Description |
+| --- | --- | --- | --- |
+| Design | web site forwarding | TBD | Allow an existing website to be rendered under a dot-country domain.
 
 ### For Review and/or archiving
 
