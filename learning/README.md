@@ -1,8 +1,6 @@
 # Harmony dot-country knowledge transfer
 
-*Disclaimer: These learning sessions are based on John’s tooling, different IDE’s, development approaches are valid. Also there may be better subject matter experts in different languages who could improve upon approaches below. Harmony Team members should augment with additional information where available.*
-
-***Note: The following information will be moved into github and videos will be stored in a gcloud bucket.***
+*Disclaimer: These learning sessions are based on the author's (John Whitton) tooling. In practice there are different approaches for different IDEs. They could be further improved by subject matter experts. Harmony team members should feel feel to revise and augment the documents.*
 
 ## Learning Sessions Overview
 
@@ -16,3 +14,5 @@
 | [ens testing solidity](./6-ens-testing-solidity.md) | Working session writing tests for DC.sol and Tweet.sol | 45 minutes | Solidity Developers |
 | [mono repository structure](./7-mono-repository-structure.md) | Overview of mono repository structure and components | 30 minutes | Devlopers |
 | [eas smtp development](./8-eas-smtp-development.md) | Overview of email aliasing functionality and development | 30 minutes | Developers, Analysts |
+
+***Note: The videos may be moved to a gcloud bucket.***
