@@ -2,17 +2,13 @@
 
 ## Overview
 
-This repository holds information relevant to the design and implementation of Harmony 1ns implementation, which is initially based on ENS.
-
-It is targeted for the Harmony Team and ecosystem developers.
-
-It is broken into the following sections
+Here you can find notes, tutorials, and devops snippets relevant to 1NS, which is initially based on ENS. The resources are targeted for the Harmony Team and ecosystem developers, devided into the following sections
 
 | Section | Overview | Audience |
 | --- | --- | --- |
-| [Design](./design) | Overview of the Harmony 1ns Design | Analysts, Developers |
-| [Learning Sessions](./learning) | Educational Material for 1ns Developers | Devlopers |
-| [Operations](./operations) | Deployment and Operational information | Operations, Developers |
+| [Notes](./notes) | Notes taken during active development of .country | Analysts, Developers |
+| [Learning Sessions](./learning) | Educational material for 1ns developers | Devlopers |
+| [Operations](./operations) | Deployment and operational information | Operations, Developers |
 
 ### **TODO List (Tentative)**
 
