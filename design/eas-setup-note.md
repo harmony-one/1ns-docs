@@ -1,14 +1,12 @@
-# Email Alias Service
+# EAS Setup Note
 
-## Developer Notes
-
-This guide gives an overview for contributors on how to fork and develop on EAS. For an understanding of the design of EAS please review [DESIGN.md](./DESIGN.md).
+This tutorial details the steps required for contributors to run EAS locally. 
 
 ## Development Process
 
-The main repo is held at [https://github.com/polymorpher/eas](https://github.com/polymorpher/eas). To get started create a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of this repository. Upon completion of work create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) from your fork and optionally your [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) to the [main repo main branch](https://github.com/polymorpher/eas).
+The main repo is held at [https://github.com/harmony-one/eas](https://github.com/harmony-one/eas). To get started create a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of this repository. Upon completion of work create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) from your fork and optionally your [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) to the [main repo main branch](https://github.com/polymorpher/eas).
 
-Throughout this document the sample fork repository is under the organization `jw-1ns` replace this with your github [account](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account) or [orgranization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations).
+Throughout this document the sample fork repository is under the organization `jw-1ns`. You need to replace this with your github [account](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account) or [orgranization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations).
 
 ## Prerequisites
 
@@ -19,7 +17,7 @@ You will need the following
 * [ganache](https://www.npmjs.com/package/ganache): It is recommended you install the ganache npm package using `` you may also install the [standalone application](https://trufflesuite.com/ganache/)
 * [redis](https://redis.io/docs/getting-started/installation/)
 
-The following are recommended
+The following is recommended
 
 * [nvm](https://github.com/nvm-sh/nvm): Node version manager
 
@@ -33,14 +31,14 @@ error hardhat@2.12.7: The engine "node" is incompatible with this module. Expect
 
 ## Quickstart
 
-The following is an overview of the commands used to clone and start EAS.
+Follow these steps to clone and start EAS.
 
-Typically ganache, contracts, server and client are all run in separate windows.
+Typically ganache, contracts, server and client are all run in separate sessions (terminal windows or tabs).
 
 **Clone your forked repository**
 
 ```
-git clone https://github.com/jw-1ns/eas.git
+git clone https://github.com/harmony-one/eas.git
 ```
 
 **Redis: start Redis (to stop use Ctrl-C)**
@@ -126,6 +124,3 @@ start client locally
 yarn debug
 ```
 
-## Development Tasks
-
-* Resolve client errors: Resolve the [errors found in this gist](https://gist.github.com/johnwhitton/b9266b4576b4e9f3256d5d4629ac135d) when starting the client locally.
