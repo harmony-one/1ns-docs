@@ -176,7 +176,6 @@ pnpm dev:nlocal
 
 ## References
 
-[ENS DAO Constitution](/assets/constitution.pdf)
 [ENS on OpenSea](https://opensea.io/collection/ens)
 
 ### Websites
