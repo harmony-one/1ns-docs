@@ -25,7 +25,7 @@ See [Developer Tooling: Machine Setup (mac)](./2-developer-tooling.md#machine-se
 ## ens-deployer local testing
 
 1. Create a tmp directory for lesson
-2. Clone [ens-deployer](https://github.com/jw-1ns/ens-deployer.git)
+2. Clone [ens-deployer](https://github.com/harmony-one/ens-deployer.git)
 3. Checkout service-testing branch
 4. Yarn install
 5. Compile contracts
@@ -39,8 +39,8 @@ See [Developer Tooling: Machine Setup (mac)](./2-developer-tooling.md#machine-se
 
 # In first window
 
-# Clone the ens-deployer jw-1ns repository
-git clone https://github.com/jw-1ns/ens-deployer.git
+# Clone the ens-deployer harmony-one repository
+git clone https://github.com/harmony-one/ens-deployer.git
 cd ens-deployer
 
 # checkout service testing branch
@@ -87,7 +87,7 @@ yarn test-dc
 
 ## dot-country local testing
 
-1. Clone [dot-country](https://github.com/polymorpher/dot-country)
+1. Clone [dot-country](https://github.com/harmony-one/dot-country)
 2. Compile contracts
 3. Test using hardhat
 4. Run ganache locally
@@ -97,8 +97,8 @@ yarn test-dc
 ```bash
 
 # Open a 3rd window in iterm
-# Clone the dot-country jw-1ns repository
-git clone https://github.com/jw-1ns/dot-country.git
+# Clone the dot-country harmony-one repository
+git clone https://github.com/harmony-one/dot-country.git
 cd dot-country/
 
 # checkout testing branch
@@ -154,13 +154,13 @@ yarn test
 11. Restest test.country using DIG
 
 ```bash
-# Reference https://github.com/jw-1ns/coredns-1ns/blob/main/DEVELOPER.md
+# Reference https://github.com/harmony-one/coredns-1ns/blob/main/DEVELOPER.md
 # Open a fourth and fifth window in iterm
 
 # In the fourth window
 
-# clone the jw-1ns coredns plugin
-git clone https://github.com/jw-1ns/coredns-1ns.git
+# clone the harmony-one coredns plugin
+git clone https://github.com/harmony-one/coredns-1ns.git
 cd coredns-1ns/
 
 # update the dependencies
@@ -206,10 +206,10 @@ Optional buiild using local go-1ns
 
 # Open a sixth window
 
-# Reference https://github.com/jw-1ns/go-1ns/blob/main/DEVELOPER.md
+# Reference https://github.com/harmony-one/go-1ns/blob/main/DEVELOPER.md
 
-# clone the go-1ns jw-1ns repository
-git clone https://github.com/jw-1ns/go-1ns.git
+# clone the go-1ns harmony-one repository
+git clone https://github.com/harmony-one/go-1ns.git
 cd go-1ns
 
 # update the dependancies 
@@ -258,7 +258,7 @@ npx hardhat deploy --network local
 # Reference https://github.com/graphprotocol/graph-node#quick-start
 
 # Deploy Subggraph
-git clone https://github.com/jw-1ns/ens-subgraph.git
+git clone https://github.com/harmony-one/ens-subgraph.git
 cd ens-subgraph
 yarn setup
 
@@ -341,7 +341,7 @@ ipfs daemon
 ./postgres.sh
 
 # Start Graph Node (terminal window 4)
-# git clone https://github.com/jw-1ns/graph-node.git
+# git clone https://github.com/harmony-one/graph-node.git
 cd graph-node
 cargo run -p graph-node --release -- /
   --postgres-url postgresql://<<username>>:<<password>>@localhost:5432/graph-node /
@@ -349,7 +349,7 @@ cargo run -p graph-node --release -- /
  --ipfs 127.0.0.1:5001
 
 # Load ens-subgraph (terminal window 5)
-# git clone https://github.com/jw-1ns/ens-subgraph
+# git clone https://github.com/harmony-one/ens-subgraph
 cd ens-subgraph
 nvm use v14.17.0
 # yarn install
@@ -357,13 +357,13 @@ yarn setup
 
 # Local cloudflare worker for avatar service
 # Login in to cloudflare https://cloudflare.com
-# git clone https://github.com/jw-1ns/ens-avatar-worker
+# git clone https://github.com/harmony-one/ens-avatar-worker
 cd ens-avatar-worker
 # pnpm install
 pnpm start
 
 # Local ens-metadata-service
-# git clone https://github.com/jw-1ns/ens-metadata-service
+# git clone https://github.com/harmony-one/ens-metadata-service
 cd ~/ens/ens-metadata-service
 git checkout local-deploy
 nvm use v18.14.2
@@ -372,7 +372,7 @@ yarn install
 yarn dev
 
 # Start the Frontend (separate terminal window 6)
-# git clone https://github.com/jw-1ns/ens-app-v3.git
+# git clone https://github.com/harmony-one/ens-app-v3.git
 cd ~/ens/ens-app-v3
 # pnpm install
 # cp .env.standalone .env
