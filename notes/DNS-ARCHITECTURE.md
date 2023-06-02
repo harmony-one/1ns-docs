@@ -1,62 +1,25 @@
-# Domain Name Service Architecture
+# Initial Discussions
 
-- [Domain Name Service Architecture](#domain-name-service-architecture)
-  - [Overview](#overview)
-  - [Requirements](#requirements)
-    - [TLD management](#tld-management)
-  - [Components](#components)
-    - [ENS Fronted](#ens-fronted)
-    - [ENS Web3 Backend](#ens-web3-backend)
-    - [Web 2 Registry](#web-2-registry)
-    - [Web 2 Domain Name Server](#web-2-domain-name-server)
-  - [Reviews](#reviews)
-    - [Registry - Nomulus](#registry---nomulus)
-    - [Name Servers - Criteria and CodeBases for Review](#name-servers---criteria-and-codebases-for-review)
-      - [Criteria](#criteria)
-      - [Summary](#summary)
-      - [core-dns (go) - Ranking 1](#core-dns-go---ranking-1)
-      - [trust-dns (rust) - Ranking 2](#trust-dns-rust---ranking-2)
-      - [nsd (c) - Ranking 3](#nsd-c---ranking-3)
-      - [gdnsd (c) - Ranking 5](#gdnsd-c---ranking-5)
-      - [node-dns (javascript) - Ranking 5](#node-dns-javascript---ranking-5)
-      - [solana-dns (javascript) - Ranking 5](#solana-dns-javascript---ranking-5)
-  - [Standards](#standards)
-    - [Basic operations](#basic-operations)
-    - [Update operations](#update-operations)
-    - [Secure DNS operations](#secure-dns-operations)
+The early ideas of the .country project materialized in a published article, [Working with web2 domain systems in web3 ](https://github.com/harmony-one/dot-country/blob/main/Design.md). The article does not get into details of registry or registrar implementations, but they were discussed privately. This document encapsulates the some initial thoughts in the very early phase of the .country project, including analysis of web3 components and potential open source software that can be used to service the web2 components. However, the plan to operate a registry or registrar was halted due to the strict requirements from ICANN, and the fact that qualification application may take a long period of time to process.
 
-## Overview
+### Registry
 
-This document gives a review of existing DNS services and proposes an architecture for Harmony Domain Name Service.
+Registry maintains domain ownership, expiry, and contact information record. Registry only communicates with registrars. Registry does not manage the DNS records (which is the responsiblity of the nameserver assigned by the domain). Currently, the .country registry operater is delegated to be [Internet Naming Co.](https://internetnaming.co/) (formerly known as Uni Naming & Registry)
 
-## Requirements
 
-### TLD management
+## Web3 Registry
 
-- This allows us to create a registry that manages the TLD, such that we can accept requests from registrars (user-facing businesses that let people look up available domain names and buy domains)
-  - The requests from registrars are sent via [EPP commands](https://datatracker.ietf.org/doc/html/rfc3731). Nomulus has built-in tools to parse and process these commands.
+- We want to operate a registry that manages the TLD, such that we can interface with registrars who will process user-facing registration and renewal requests
+  - Note: the interface is in [EPP commands](https://datatracker.ietf.org/doc/html/rfc3731). Nomulus (see below) has built-in tools to parse and process these commands.
 - We will need to add web3 capabilities to the registry managed by Nomulus, so it reads and writes the blockchain when it is processing EPP requests (and other types of requests) from registrars.
 - Since existing registrars are not taking the necessary web3 information from users (which at minimum, should include wallet address and a signature to authorize a request), we will also need to build a simple registrar to demonstrate how it should be done.
   - In the non-custodial case, the registrar can be a UI-only client. This should be what we build first
   - If the registrar wants to operates in a conventional way and takes the custody of the domains for users without web3 wallets, it will also need a server. We should build a simple example of that as well, so we can partner with traditional registrars
 
-## Components
+### Fronted
 
-### ENS Fronted
+The [ENS Frontend v3](https://github.com/harmony-one/ens-app-v3) (deployed at <https://ens.demo.harmony.one/>) can be used by users to register and manage their domains. An extra features was implemented to allow the user claiming the equivalent web2 domain after they finish registring the web3 domain. This frontend can be further revised to serve our purposes, or to become a template for web3 registrar.
 
-Lets users register their domains. Currently Harmony has developed a demonstration application deployed at <https://ens.demo.harmony.one/> using the codebase <https://github.com/polymorpher/.1.country/tree/main/client>. This has limited functionality where a site can be rented for 3 months, with the ability for others to surpass the rental by paying double the last rental amount. Initial rental amount is 100 ONE. This does not support Top Level Domains (TLDs) instead Tier 2 domains under `.1.country` are suppored e.g. `alice.1.country`.
-
-*An indepth review of the exisisting ENS Application can be found in [1NS-Design](./1NS-DESIGN.md).*
-
-### ENS Web3 Backend
-
-Provides the smart contract functionality for registering and renting domains. Currently Harmony has developed a single smart contract [D1DC.sol](https://github.com/polymorpher/.1.country/blob/main/contracts/contracts/D1DC.sol). To provide this functionality.
-
-*An indepth review of the exisisting ENS Smart Contracts can be found in [1NS-Design](./1NS-DESIGN.md).*
-
-### Web 2 Registry
-
-This provides functionality for registering web 2 domains. Capturing the domain owner, contact details and period of ownership. It does not manage the Domains DNS entries which is the responsiblity of the Domain Name Server. Currently Harmony uses [UNI NAMING AND REGISTRY](https://uniregistry.link/) (UNR). There has also been an initial Review of Open Source Code Registry [Nomulus by Google](https://github.com/google/nomulus) which can be found in [Review -> Registry](#registry).
 
 ### Web 2 Domain Name Server
 
