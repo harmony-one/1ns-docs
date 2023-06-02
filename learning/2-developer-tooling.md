@@ -14,7 +14,7 @@
 
 ## Development Tools
 
-- Integrated Development Environment: [Visual Studio](https://visualstudio.microsoft.com/) is commonly used with additional [extensions](https://marketplace.visualstudio.com/) for programing languages based on developer needs. Alternately you can use [vim](https://www.vim.org/).
+- Integrated Development Environment: [Webstorm](https://www.jetbrains.com/webstorm/) and [Visual Studio](https://visualstudio.microsoft.com/) are commonly used with additional [extensions](https://marketplace.visualstudio.com/) and [plugins](https://plugins.jetbrains.com/webstorm) for programing languages based on developer needs. Alternately you can use [vim](https://www.vim.org/).
 - Version Management: [github](https://github.com/) is used for version managemt
 - Command Line: [iterm2](https://iterm2.com/) offers robust terminal features.
 
