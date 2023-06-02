@@ -6,7 +6,7 @@
 
 | Session | Overview | Duration | Audience |
 | --- | --- | --- | --- |
-| [ens overview](./1-ens-overview.md) | dot country design and implementation overview | 30 minutes | Analysts, Developers |
+| [overview](./1-overview.md) | overview of key packages and repositories | 30 minutes | Analysts, Developers |
 | [developer tooling](./2-developer-tooling.md) | Overview of IDE, plugins, bash and linting | 15 minutes | Developers |
 | [solidity development](./3-solidity-development.md) | Solidity development with a dot-country focus | 45 minutes | Solidity Developers |
 | [ens testing infrastructure](./4-ens-testing-infrastructure.md) | Working Session, How to set up Local testing environment for dot-country | 60 minutes | Developers, Operations |
